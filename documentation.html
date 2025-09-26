@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie API Documentation</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
+    h1 { color: #333; }
+    h2 { color: #555; margin-top: 30px; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; }
+    code { color: #c7254e; background-color: #f9f2f4; padding: 2px 4px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h1>🎬 Movie API Documentation</h1>
+
+  <h2>GET /movies</h2>
+  <p>Returns a list of all movies.</p>
+  <p><strong>Method:</strong> GET</p>
+  <p><strong>Response:</strong></p>
+  <pre>[
+  {
+    "title": "Inception",
+    "genre": "Sci-Fi",
+    "director": "Christopher Nolan",
+    "releaseYear": 2010,
+    "rating": 8.8,
+    "isFeatured": true
+  }
+]</pre>
+
+  <h2>GET /movies/:title</h2>
+  <p>Returns details about a single movie by title.</p>
+  <p><strong>Method:</strong> GET</p>
+  <p><strong>Example:</strong> <code>/movies/Inception</code></p>
+
+  <h2>GET /genres/:genre</h2>
+  <p>Returns description and examples of movies in a genre.</p>
+  <p><strong>Method:</strong> GET</p>
+  <p><strong>Example:</strong> <code>/genres/Sci-Fi</code></p>
+
+  <h2>GET /directors/:name</h2>
+  <p>Returns information and movies by a specific director.</p>
+  <p><strong>Method:</strong> GET</p>
+  <p><strong>Example:</strong> <code>/directors/Christopher%20Nolan</code></p>
+
+  <h2>POST /movies</h2>
+  <p>Adds a new movie to the database.</p>
+  <p><strong>Method:</strong> POST</p>
+  <p><strong>Body:</strong></p>
+  <pre>{
+  "title": "Interstellar",
+  "genre": "Sci-Fi",
+  "director": "Christopher Nolan",
+  "releaseYear": 2014,
+  "rating": 8.6
+}</pre>
+
+  <h2>POST /users</h2>
+  <p>Registers a new user.</p>
+  <p><strong>Method:</strong> POST</p>
+  <p><strong>Body:</strong></p>
+  <pre>{
+  "username": "janedoe",
+  "email": "jane@example.com",
+  "password": "secure123",
+  "dateOfBirth": "1995-06-15"
+}</pre>
+
+  <h2>GET /users</h2>
+  <p>Returns a list of all registered users.</p>
+  <p><strong>Method:</strong> GET</p>
+
+  <h2>PUT /users/:id</h2>
+  <p>Updates user information.</p>
+  <p><strong>Method:</strong> PUT</p>
+  <p><strong>Body:</strong></p>
+  <pre>{
+  "email": "newemail@example.com",
+  "password": "newpass456"
+}</pre>
+
+  <h2>POST /users/:id/favorites/:movieId</h2>
+  <p>Adds a movie to a user's favorites.</p>
+  <p><strong>Method:</strong> POST</p>
+
+  <h2>DELETE /users/:id/favorites/:movieId</h2>
+  <p>Removes a movie from a user's favorites.</p>
+  <p><strong>Method:</strong> DELETE</p>
+
+  <h2>DELETE /users/:id</h2>
+  <p>Deregisters a user.</p>
+  <p><strong>Method:</strong> DELETE</p>
+
+</body>
+</html>
