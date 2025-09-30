@@ -19,13 +19,25 @@ mongoose.connect('mongodb://localhost:27017/MovieDB', {
 // 🎬 Movie Routes
 
 app.get('/movies', async (req, res) => {
-  const movies = await Movie.find();
-  res.json(movies);
+  try {
+    const movies = await Movie.find();
+    res.json(movies);
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
 });
 
+
 app.get('/movies/:title', async (req, res) => {
-  const movie = await Movie.findOne({ title: req.params.title });
-  movie ? res.json(movie) : res.status(404).send('Movie not found');
+  try {
+    const movie = await Movie.findOne(
+      { title: req.params.title },
+      { description: 1, genre: 1, director: 1, featured: 1, _id: 0 }
+    );
+    movie ? res.json(movie) : res.status(404).send('Movie not found');
+  } catch (err) {
+    res.status(500).send('Server error');
+  }
 });
 
 app.post('/movies', async (req, res) => {
